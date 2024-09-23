@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../scss/style.scss";
-import { Link } from "react-router-dom";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import DetailPage from './DetailPage';  
+import DetailPage from './DetailPage';
+
 
 const Hero: React.FC = () => {
   const [openDialog, setOpenDialog] = useState<number | null>(null);
@@ -39,14 +39,14 @@ const Hero: React.FC = () => {
             <h2 className="text-xl font-bold">Project 1</h2>
             <p className="project-title">Yodora</p>
             <button className="flex items-center justify-center gap-1"
-                            onClick={() => toggleDetails(1)} 
->
+              onClick={() => toggleDetails(1)}
+            >
               <span
                 className="text-indigo-600 hover:underline"
               >
                 More
               </span>
-          
+
               <IoIosArrowDropdownCircle
                 className="self-center text-3xl text-center cursor-pointer"
               />
@@ -55,10 +55,15 @@ const Hero: React.FC = () => {
 
           {/* Conditionally render DetailPage based on openDialog */}
           {openDialog === 1 && <DetailPage />}
+
         </section>
+
       </main>
+
     </div>
   );
+
 };
+
 
 export default Hero;
