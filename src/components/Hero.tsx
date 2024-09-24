@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="md:flex">
+    <div className="flex md:flex-wrap">
       <header className="z-10 flex flex-col items-center justify-center my-10 border border-black shadow-xl p-14 max-w-max h-1/2">
         <h1 className="text-3xl font-bold text-center">
           Project <br /> <span className="text-indigo-800">Showcase</span>
@@ -54,11 +54,12 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Conditionally render DetailPage based on openDialog */}
-          {openDialog === 1 && <DetailPage />}
 
         </section>
 
       </main>
+      {openDialog === 1 && <DetailPage />}
+
 
     </div>
   );
