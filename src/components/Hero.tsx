@@ -6,41 +6,38 @@ import DetailPage from './DetailPage';
 const Hero: React.FC = () => {
   const [openDialog, setOpenDialog] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  let timeoutId: NodeJS.Tomeout | undefined;
+  let timeoutId: NodeJS.Timeout | undefined;
 
   const toggleDetails = (index: number) => {
     setOpenDialog(openDialog === index ? null : index);  // Toggle between open and close
   };
 
-  
-  const handleSearch =() => {
+  const handleSearch = () => {
     clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
       const searchItem = inputRef.current?.value.trim().toLowerCase();
       console.log(`Search term is: ${searchItem}`);
-  
+
       const assignmentCards = document.querySelectorAll('.assignment-card');
       assignmentCards.forEach(function (card) {
         const title = card.querySelector(".project-title")?.textContent?.toLowerCase();
         if (title && title.includes(searchItem || "")) {
           card.classList.remove("hide-search");
-          console.log('remove hide')
+          console.log('remove hide');
         } else {
           card.classList.add("hide-search");
-          console.log('hide')
+          console.log('hide');
         }
       });
-  
+
     }, 500);
   }
 
   return (
     <div className="relative flex items-center justify-center md:flex-wrap">
       {/* Conditionally render the overlay when openDialog is open */}
-      {openDialog !== null && (
-        <div className=""></div>
-      )}
+      {openDialog !== null && <div className="overlay"></div>}
 
       <header className="flex flex-col items-center justify-center my-10 border border-black shadow-xl p-14 max-w-max h-1/2">
         <h1 className="text-3xl font-bold text-center">
@@ -48,7 +45,7 @@ const Hero: React.FC = () => {
         </h1>
         <h3 className="text-center">Frontend Intern</h3>
         <p className="text-center">YoungInnovations Pvt. Ltd.</p>
-        <p className="font-bold text-center ">Shristi Koju</p>
+        <p className="font-bold text-center">Shristi Koju</p>
       </header>
 
       <main className="flex flex-col my-4 min-w-[60vw] p-8 gap-8 items-end">
@@ -79,8 +76,8 @@ const Hero: React.FC = () => {
           </div>
         </section>
 
-           {/* Project 2 */}
-           <section className="transition-transform duration-1000 ease-out transform translate-y-0">
+        {/* Project 2 */}
+        <section className="transition-transform duration-1000 ease-out transform translate-y-0">
           <div className="relative flex items-center justify-around gap-32 px-6 py-2 border border-gray-300 shadow-lg assignment-card rounded-5xl">
             <h2 className="text-xl font-bold">Project 2</h2>
             <p className="project-title">Evogym</p>
@@ -96,6 +93,7 @@ const Hero: React.FC = () => {
       </main>
 
       {/* Conditionally render DetailPage and overlay */}
+      {openDialog !== null && <div id="overlay" className="active"></div>}
       {openDialog === 1 && <DetailPage />}
     </div>
   );
