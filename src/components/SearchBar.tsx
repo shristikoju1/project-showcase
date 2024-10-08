@@ -1,22 +1,23 @@
 import { useRef } from "react";
 
 const SearchBar = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleSearch = () => {
+    const searchItem = inputRef.current?.value.trim().toLowerCase();
+    const assignmentCards = document.querySelectorAll(".assignment-card");
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    assignmentCards.forEach(function (card) {
+      const title = card
+        .querySelector(".project-title")
+        ?.textContent?.toLowerCase();
+      if (title && title.includes(searchItem || "")) {
+        card.classList.remove("hide-search");
+      } else {
+        card.classList.add("hide-search");
+      }
+    });
+  };
 
-    const handleSearch = () => {
-        const searchItem = inputRef.current?.value.trim().toLowerCase();
-        const assignmentCards = document.querySelectorAll('.assignment-card');
-        assignmentCards.forEach(function (card) {
-          const title = card.querySelector(".project-title")?.textContent?.toLowerCase();
-          if (title && title.includes(searchItem || "")) {
-            card.classList.remove("hide-search");
-          } else {
-            card.classList.add("hide-search");
-          }
-        });
-      };
-    
   return (
     <div className="search-div">
       <input

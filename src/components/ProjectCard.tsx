@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ openProject, toggleDetails })
             openProject === project.id ? "translate-y-2" : "translate-y-0"
           }`}
         >
-          <div className="relative flex items-center justify-around gap-32 px-6 py-2 border border-gray-300 shadow-lg assignment-card rounded-5xl">
+          <div className="relative flex items-center justify-between gap-32 px-6 py-2 border border-gray-300 shadow-lg assignment-card rounded-5xl">
             <h2 className="text-xl font-bold">{project.projectNumber}</h2>
             <p className="font-semibold project-title">{project.title}</p>
             <button
