@@ -1,21 +1,20 @@
-import { useRef } from "react";
+import {RefObject} from 'react';
+interface SearchBarProps {
+  onSearch: (searchTerm: string) => void; 
+  searchRef: RefObject<HTMLInputElement>;
+}
+let timeoutId: NodeJS.Tomeout | undefined;
 
-const SearchBar = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+
+const SearchBar = ({ onSearch, searchRef }: SearchBarProps) => {
+
   const handleSearch = () => {
-    const searchItem = inputRef.current?.value.trim().toLowerCase();
-    const assignmentCards = document.querySelectorAll(".assignment-card");
-
-    assignmentCards.forEach(function (card) {
-      const title = card
-        .querySelector(".project-title")
-        ?.textContent?.toLowerCase();
-      if (title && title.includes(searchItem || "")) {
-        card.classList.remove("hide-search");
-      } else {
-        card.classList.add("hide-search");
-      }
-    });
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      const searchItem = searchRef.current?.value.trim().toLowerCase() || "";
+      onSearch(searchItem); // Pass the search term to the parent component
+  
+    },700)
   };
 
   return (
@@ -23,11 +22,12 @@ const SearchBar = () => {
       <input
         type="text"
         id="searchbox"
-        ref={inputRef}
+        ref={searchRef}
         placeholder="What are you looking for?"
         autoComplete="off"
         className="w-full p-2 border border-gray-300 rounded-2xl focus:ring-indigo-500"
         onInput={handleSearch}
+        
       />
     </div>
   );

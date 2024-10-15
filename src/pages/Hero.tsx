@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../scss/style.scss";
 import DetailPage from "./DetailPage";
 import { projects } from "../data/ProjectDetails";
@@ -8,6 +8,8 @@ import ProjectCard from "../components/ProjectCard";
 
 const Hero: React.FC = () => {
   const [openProject, setOpenProject] = useState<number | null>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Correct use of searchTerm
 
   const toggleDetails = (id: number) => {
     setOpenProject(openProject === id ? null : id);
@@ -17,18 +19,29 @@ const Hero: React.FC = () => {
     setOpenProject(null);
   };
 
+  const handleSearch = (term: string) => {
+    setSearchTerm(term); // Update searchTerm on search
+  };
+
   const selectedProject = projects.find((p) => p.id === openProject);
 
   return (
-    <div className="relative flex-wrap items-center justify-center sm:flex">
-      <Header />
-      <main className="flex flex-col my-4 min-w-[60vw] p-8 gap-8 items-end">
-        <SearchBar />
-        <ProjectCard openProject={openProject} toggleDetails={toggleDetails} />
+    <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2 grid-rows-auto">
+      <div className="md:row-span-2">
+        <div className="md:fixed">
+          <Header />
+        </div>
+      </div>
+      <main className="flex flex-col gap-8 p-8 md:my-4 ">
+        {/* Pass searchRef and searchTerm correctly */}
+        <SearchBar onSearch={handleSearch} searchRef={searchRef} />
+        <ProjectCard openProject={openProject} toggleDetails={toggleDetails} searchTerm={searchTerm} projects={projects} />
       </main>
 
       {/* Conditionally render DetailPage if a project is selected */}
-      {selectedProject && <DetailPage project={selectedProject} onClose={closeDetails} />}
+      {selectedProject && (
+        <DetailPage project={selectedProject} onClose={closeDetails} />
+      )}
     </div>
   );
 };

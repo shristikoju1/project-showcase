@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 function App() {
 
   return (
-    <div className='px-[50px]'>
+    <div className=''>
          <Hero/>
          <Footer/>
       </div>
