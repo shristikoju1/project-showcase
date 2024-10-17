@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2 grid-rows-auto">
-      <div className="md:row-span-2">
+      <div className="pl-5 md:row-span-2">
         <div className="md:fixed">
           <Header />
         </div>

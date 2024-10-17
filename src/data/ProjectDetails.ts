@@ -35,7 +35,7 @@ export interface Project {
             "It includes responsive design."
         ],
         githubLink: "https://github.com/shristikoju1/Tailwind-frontend-challenge/",
-        liveDemoLink: "https://evogym-demo.vercel.app/",
+        liveDemoLink: "https://frontend-challenge-tailwind-hwll-9mb56mau3.vercel.app/",
         image: Tailwind,
     },
 
@@ -49,7 +49,7 @@ export interface Project {
             "It includes responsive design."
         ],
         githubLink: "https://github.com/shristikoju1/Tailwind-frontend-challenge/",
-        liveDemoLink: "https://evogym-demo.vercel.app/",
+        liveDemoLink: "https://frontend-challenge-tailwind-hwll-9mb56mau3.vercel.app/",
         image: Tailwind,
     },
     {

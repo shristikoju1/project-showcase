@@ -7,7 +7,7 @@ function App() {
   return (
     <div className=''>
          <Hero/>
-         <Footer/>
+         {/* <Footer/> */}
       </div>
   )
 }
