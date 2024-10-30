@@ -1,6 +1,5 @@
-import { FaGithub } from "react-icons/fa";
-import { FaVideo } from "react-icons/fa"; 
-import { RxCross2 } from "react-icons/rx";
+import { FaGithub, FaVideo } from "react-icons/fa";
+// import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 
 interface Project {
@@ -34,13 +33,13 @@ const DetailPage: React.FC<DetailPageProps> = ({ project, onClose }) => {
         <div className="overlay" onClick={closeModal}></div>
         <div className="details modal" id="dialog">
       <div className="relative wrapper">
-        <RxCross2
+        {/* <RxCross2
           className="absolute w-8 h-8 cursor-pointer top-4 right-4"
           onClick={closeModal}
-        />
+        /> */}
         <h1 className="text-2xl font-bold">{project.title}</h1>
         <div className="text-left description">
-          <ul className="ml-1 list-disc">
+          <ul className="px-10 ml-1 text-left list-disc ">
             {project.description.map((point, index) => (
               <li key={index}>{point}</li>
             ))}
@@ -62,7 +61,7 @@ const DetailPage: React.FC<DetailPageProps> = ({ project, onClose }) => {
             <FaVideo className="text-indigo-400 " />
           </a>
         </div>
-        <img src={project.image} alt={project.title} width="350" height="300" />
+        <img src={project.image} alt={project.title} width="400" height="250" />
       </div>
     </div>
 

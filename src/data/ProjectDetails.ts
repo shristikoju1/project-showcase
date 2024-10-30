@@ -1,5 +1,6 @@
 import Yodora from "../assets/yodora.png"
 import Tailwind from '../assets/taiwind-frontend-challenge.png'
+import Todo from '../assets/todo.png'
 
 export interface Project {
     id: number;
@@ -30,11 +31,11 @@ export interface Project {
         projectNumber: "Project 2",
         title: "Tailwind: LightCode",
         description: [
-            "This is a basic frontend design.",
+            "A simple landing page.",
             "It is built using the tailwind for tailwind practice.",
             "It includes responsive design."
         ],
-        githubLink: "https://github.com/shristikoju1/Tailwind-frontend-challenge/",
+        githubLink: "https://github.com/shristikoju1/lightcode",
         liveDemoLink: "https://frontend-challenge-tailwind-hwll-9mb56mau3.vercel.app/",
         image: Tailwind,
     },
@@ -57,13 +58,13 @@ export interface Project {
         projectNumber: "Project 4",
         title: "JS: DainikLogs(Todo App)",
         description: [
-            "This is a gym landing page with advanced CSS animations.",
+            "This is a simple todo built for the practice of JS.",
             "Features a user-friendly interface.",
             "Includes workout plans and schedules."
         ],
-        githubLink: "https://github.com/your-repo/evogym",
-        liveDemoLink: "https://evogym-demo.vercel.app/",
-        image: "path_to_evogym_image",
+        githubLink: "https://github.com/shristikoju1/todo-task",
+        liveDemoLink: "https://todo-2xjq6dby6-shristikoju1s-projects.vercel.app/",
+        image: Todo,
     },
     {
         id: 5,
@@ -74,8 +75,8 @@ export interface Project {
             "Features a user-friendly interface.",
             "Includes workout plans and schedules."
         ],
-        githubLink: "https://github.com/your-repo/evogym",
-        liveDemoLink: "https://evogym-demo.vercel.app/",
+        githubLink: "https://github.com/shristikoju1/YIPL/blob/main/35JS-image-search-app(task)",
+        liveDemoLink: "https://image-search-app-sandy.vercel.app/",
         image: "path_to_evogym_image",
     },
     {
