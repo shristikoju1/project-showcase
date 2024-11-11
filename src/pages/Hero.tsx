@@ -9,7 +9,7 @@ import ProjectCard from "../components/ProjectCard";
 const Hero: React.FC = () => {
   const [openProject, setOpenProject] = useState<number | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
-  const [searchTerm, setSearchTerm] = useState(""); // Correct use of searchTerm
+  const [searchTerm, setSearchTerm] = useState(""); 
 
   const toggleDetails = (id: number) => {
     setOpenProject(openProject === id ? null : id);
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   };
 
   const handleSearch = (term: string) => {
-    setSearchTerm(term); // Update searchTerm on search
+    setSearchTerm(term); 
   };
 
   const selectedProject = projects.find((p) => p.id === openProject);

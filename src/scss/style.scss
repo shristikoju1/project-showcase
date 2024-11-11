@@ -23,13 +23,12 @@ body {
 }
 
 header {
-  animation: blob-animate 5s ease-in-out infinite;
+  animation: blob-animate 4s ease-in-out infinite;
   margin: 2rem;
   width: max-content;
   z-index: -1;
   backdrop-filter: blur(2px);
   background: $primary-bg;
-
   transition: $transition;
 }
 
@@ -65,12 +64,6 @@ header {
     font-size: 1.2rem;
     width: 85%;
   }
-
-  // &.hide-search {
-  //   // display: none;
-  //   visibility: hidden;
-  //   opacity: 0;
-  // }
 }
 
 /* ASSIGNMENT CARD */
